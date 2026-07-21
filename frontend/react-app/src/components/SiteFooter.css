@@ -1,0 +1,109 @@
+.site-footer {
+  margin-top: 12px;
+  padding: 0 24px 32px;
+}
+
+.site-footer__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 34px;
+  border-radius: 32px;
+  background:
+    linear-gradient(145deg, rgba(49, 67, 45, 0.98) 0%, rgba(26, 39, 24, 0.96) 100%);
+  color: #edf5e8;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(220px, 1fr));
+  gap: 28px;
+  box-shadow: 0 28px 60px rgba(37, 51, 33, 0.24);
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer__inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 0%, transparent 70%, rgba(255, 255, 255, 0.08) 70.3%, transparent 70.8%),
+    radial-gradient(circle at top right, rgba(221, 239, 205, 0.16), transparent 24%);
+  pointer-events: none;
+}
+
+.site-footer__brand,
+.site-footer__column {
+  position: relative;
+  z-index: 1;
+}
+
+.site-footer__eyebrow,
+.site-footer__title {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #cde0bf;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-footer__brand h2 {
+  max-width: 430px;
+  margin: 0 0 12px;
+  font-size: clamp(1.55rem, 2.6vw, 2.4rem);
+  line-height: 1.15;
+}
+
+.site-footer__brand p,
+.site-footer__column p {
+  margin: 0;
+  color: rgba(236, 245, 232, 0.84);
+  line-height: 1.75;
+}
+
+.site-footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.site-footer__column a {
+  color: #f7fbf3;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-footer__column a:hover {
+  text-decoration: underline;
+}
+
+.site-footer__legal {
+  max-width: 1240px;
+  margin: 16px auto 0;
+  padding: 0 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: #667d61;
+  font-size: 0.84rem;
+}
+
+@media (max-width: 980px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer__legal {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer {
+    padding: 0 16px 28px;
+  }
+
+  .site-footer__inner {
+    padding: 26px 22px;
+    border-radius: 26px;
+  }
+}

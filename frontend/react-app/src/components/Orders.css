@@ -1,25 +1,33 @@
 .orders {
-  padding: 20px;
-  max-width: 800px;
+  padding: 42px 24px 72px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
 .orders h1 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
+  color: #5d3d31;
+  font-size: clamp(2rem, 3.6vw, 3rem);
 }
 
 .loading {
   text-align: center;
   padding: 50px;
   font-size: 18px;
+  color: #a96f5d;
+  font-weight: 600;
 }
 
 .no-orders {
   text-align: center;
   padding: 50px;
-  color: #666;
+  color: #866355;
   font-size: 18px;
+  background: rgba(255, 251, 247, 0.9);
+  border: 1px solid rgba(239, 209, 194, 0.88);
+  border-radius: 22px;
+  box-shadow: 0 18px 34px rgba(177, 126, 107, 0.1);
 }
 
 .orders-list {
@@ -29,10 +37,11 @@
 }
 
 .order-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  background: white;
+  border: 1px solid rgba(239, 209, 194, 0.88);
+  border-radius: 24px;
+  padding: 22px;
+  background: rgba(255, 253, 251, 0.96);
+  box-shadow: 0 18px 34px rgba(177, 126, 107, 0.1);
 }
 
 .order-header {
@@ -44,25 +53,27 @@
 
 .order-header h3 {
   margin: 0;
+  color: #5d3d31;
 }
 
 .status {
-  padding: 5px 15px;
-  background: #FFC107;
-  color: white;
-  border-radius: 20px;
-  font-size: 14px;
+  padding: 7px 15px;
+  background: rgba(252, 214, 122, 0.35);
+  color: #9c6b14;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
   text-transform: capitalize;
 }
 
 .order-date {
-  color: #666;
+  color: #8a6658;
   margin-bottom: 15px;
 }
 
 .order-items {
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid rgba(233, 214, 204, 0.8);
+  border-bottom: 1px solid rgba(233, 214, 204, 0.8);
   padding: 15px 0;
   margin-bottom: 15px;
 }
@@ -71,11 +82,28 @@
   display: flex;
   justify-content: space-between;
   padding: 8px 0;
-  color: #666;
+  color: #7b594c;
 }
 
 .order-total {
   text-align: right;
   font-size: 18px;
-  color: #2196F3;
+  color: #b86157;
+}
+
+@media (max-width: 640px) {
+  .orders {
+    padding: 30px 16px 56px;
+  }
+
+  .order-header,
+  .order-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .order-total {
+    text-align: left;
+  }
 }

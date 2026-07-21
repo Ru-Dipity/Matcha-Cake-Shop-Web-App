@@ -65,7 +65,7 @@ function Cart({ user, onSignInClick }) {
 
   return (
     <div className="cart">
-      <h1>Shopping Cart</h1>
+      <h1>Your Sweet Cart</h1>
       {message && <div className="message">{message}</div>}
       
       {!cart?.items?.length ? (

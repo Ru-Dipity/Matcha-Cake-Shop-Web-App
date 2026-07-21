@@ -115,20 +115,10 @@ async def create_order(order: OrderCreate, authorization: str = Header(None)):
         if not cart.get('items'):
             raise HTTPException(status_code=400, detail="Cart is empty")
         
-        # 3. Calculate total and validate inventory
+        # 3. Calculate total
         total_amount = 0
         for item in cart['items']:
             total_amount += item['price'] * item['quantity']
-            
-            # Update inventory (reduce stock)
-            try:
-                inventory_response = await client.put(
-                    f"{settings.product_service_url}/products/{item['product_id']}/inventory",
-                    json={"quantity": -item['quantity']}
-                )
-                inventory_response.raise_for_status()
-            except Exception as e:
-                raise HTTPException(status_code=400, detail=f"Failed to update inventory: {str(e)}")
         
         # 4. Create order in database
         with get_db_cursor() as cursor:

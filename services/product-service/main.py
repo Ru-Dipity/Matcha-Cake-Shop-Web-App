@@ -1,10 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from typing import List
-from models import Product, UpdateInventoryRequest
+from models import Product
 from database import get_products_table
 from boto3.dynamodb.conditions import Attr
 from config import settings
-import uuid
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -45,22 +44,6 @@ def get_product(product_id: str):
         raise HTTPException(status_code=404, detail="Product not found")
     
     return response['Item']
-
-@app.put("/products/{product_id}/inventory")
-def update_inventory(product_id: str, request: UpdateInventoryRequest):
-    """Internal endpoint - called by Order Service to update stock"""
-    table = get_products_table()
-    
-    try:
-        response = table.update_item(
-            Key={'product_id': product_id},
-            UpdateExpression="SET stock = stock + :qty",
-            ExpressionAttributeValues={':qty': request.quantity},
-            ReturnValues="UPDATED_NEW"
-        )
-        return {"product_id": product_id, "new_stock": response['Attributes']['stock']}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn

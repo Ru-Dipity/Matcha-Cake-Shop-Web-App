@@ -106,7 +106,6 @@ jq -c '.[]' "$PRODUCTS_FILE" | while read -r product; do
         name: {S: .name},
         description: {S: .description},
         price: {N: (.price | tostring)},
-        stock: {N: (.stock | tostring)},
         category: {S: .category},
         image_url: {S: .image_url}
     }')

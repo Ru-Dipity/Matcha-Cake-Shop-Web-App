@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Authenticator, useAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Products from './components/Products';
 import Cart from './components/Cart';
 import Orders from './components/Orders';
+import SiteFooter from './components/SiteFooter';
 import { api } from './api';
 import { CartProvider } from './CartContext';
 import './App.css';
@@ -42,6 +43,7 @@ function AppContent({ showLogin, setShowLogin }) {
             <Route path="/cart" element={<Cart user={user} onSignInClick={() => setShowLogin(true)} />} />
             <Route path="/orders" element={<Orders user={user} onSignInClick={() => setShowLogin(true)} />} />
           </Routes>
+          <SiteFooter />
         </div>
       </Router>
     </CartProvider>
