@@ -8,6 +8,8 @@
 
 Matcha Cake Shop Web App is a demonstration e-commerce application built with AWS cloud-native microservices. It includes a React frontend, Python FastAPI backend services, DynamoDB and PostgreSQL data stores, and SNS/SQS-based messaging.
 
+This project is based on the AWS sample repository https://github.com/awswithchetan/ecommerce-web-app.
+
 This project showcases a complete end-to-end architecture:
 - Frontend user interface
 - Backend microservices
